@@ -5,6 +5,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import helmet from "helmet";
+import clientRoutes from "../server/routes/client.js";
+import generalRoutes from "../server/routes/general.js";
+import managementRoutes from "../server/routes/management.js";
+import salesRoutes from "../server/routes/sales.js";
 
 // configurations
 dotenv.config();
