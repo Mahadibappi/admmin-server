@@ -5,11 +5,13 @@ import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import helmet from "helmet";
-import clientRoutes from "../server/routes/client.js";
-import generalRoutes from "../server/routes/general.js";
-import managementRoutes from "../server/routes/management.js";
-import salesRoutes from "../server/routes/sales.js";
-
+import clientRoutes from "./routes/clientRoute.js";
+import generalRoutes from "./routes/generalRoute.js";
+import managementRoutes from "./routes/managementRoute.js";
+import salesRoutes from "./routes/salesRoute.js";
+import User from "./models/userModel.js";
+// data imported
+import { dataUser } from "./data/index.js";
 // configurations
 dotenv.config();
 const app = express();
@@ -36,5 +38,7 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+    // user data
+    // User.insertMany(dataUser);
   })
   .catch((error) => console.log(`${error} did not connected`));
